@@ -29,10 +29,10 @@ namespace Pombal {
 
         private void HandleInput() {
             //Flop Input
-            if (player.GetButtonDown(FlopAction)) { OnFlop?.Invoke(); Debug.Log("Flop"); }//Called on first button press 
+            if (player.GetButtonDown(FlopAction)) { OnFlop?.Invoke(); }
             //Movement Input
             Vector2 movementInput = new Vector2(player.GetAxis(MoveHorizontalAction), player.GetAxis(MoveVerticallAction));
-            if (movementInput != Vector2.zero) { OnMove?.Invoke(movementInput); Debug.Log("Move"); }//Called when not 0
+            if (movementInput != Vector2.zero) { OnMove?.Invoke(movementInput); }
         }
     }
 }
