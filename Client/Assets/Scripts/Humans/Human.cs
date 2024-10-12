@@ -1,8 +1,13 @@
+using Pombal;
 using UnityEngine;
 
 public class Human : MonoBehaviour
 {
+    [field: SerializeField] public FishController Fish { get; private set; }
     [field: SerializeField] public AIPathfinding Pathfinding { get; private set; }
-    [field: SerializeField] public Transform Target { get; set; }
-    [field: SerializeField] public float MovementSpeed { get; private set; }
+
+    private void Awake()
+    {
+        Fish = FindObjectOfType<FishController>();
+    }
 }
