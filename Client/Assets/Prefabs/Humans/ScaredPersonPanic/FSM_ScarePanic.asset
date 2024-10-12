@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f945e777233a59f4aba40aeca29093a6, type: 3}
+  m_Name: FSM_ScarePanic
+  m_EditorClassIdentifier: 
+  _serializedGraph: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_actionList":{"executionMode":1,"actions":[]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Idle","_position":{"x":198.3503,"y":-156.8524},"$type":"NodeCanvas.StateMachines.ActionState","$id":"0"},{"_nestedBT":{"_value":1},"_position":{"x":324.6392,"y":-6.148595},"$type":"NodeCanvas.StateMachines.NestedBTState","$id":"1"},{"_position":{"x":233.5485,"y":-410.207},"$type":"NodeCanvas.StateMachines.AnyState","$id":"2"},{"_actionList":{"actions":[{"$type":"NodeCanvas.Tasks.Actions.DestroyGameObject"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"DeadState","_position":{"x":442.6925,"y":-308.8661},"$type":"NodeCanvas.StateMachines.ActionState","$id":"3"}],"connections":[{"_condition":{"conditions":[{"distance":{"_name":"PanicDistance","_targetVariableID":"ed59608c-faad-4044-b82b-eb7e9da4ba4f"},"comparison":4,"$type":"DistanceToPlayerConditionTask"},{"obstacleLayer":{"_value":{"value":64}},"distance":{"_name":"PanicDistance","_targetVariableID":"ed59608c-faad-4044-b82b-eb7e9da4ba4f"},"$type":"ObstacleConditionTask"}],"$type":"NodeCanvas.Framework.ConditionList"},"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"valueA":{"_name":"IsDead","_targetVariableID":"d08a8427-0b1e-4937-9030-9343e04ed039"},"valueB":{"_value":true},"$type":"NodeCanvas.Tasks.Conditions.CheckBoolean"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{"IsDead":{"_propertyPath":"Human.IsDead","_name":"IsDead","_id":"d08a8427-0b1e-4937-9030-9343e04ed039","$type":"NodeCanvas.Framework.Variable`1[[System.Boolean,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}}'
+  _objectReferences:
+  - {fileID: 0}
+  - {fileID: 11400000, guid: fabf438ca7c8b9340a814d3aebfb1c12, type: 2}
+  _graphSource:
+    _version: 3.3
+    _category: 
+    _comments: 
+    _translation: {x: 142, y: 474}
+    _zoomFactor: 1
+  _haltSerialization: 0
+  _externalSerializationFile: {fileID: 0}

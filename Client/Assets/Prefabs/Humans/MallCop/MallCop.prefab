@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7300956206294168048}
   - component: {fileID: 3789424209511841566}
   - component: {fileID: 8957149707047450158}
+  - component: {fileID: -5557934226183909814}
   m_Layer: 0
   m_Name: MallCop
   m_TagString: Untagged
@@ -135,6 +136,8 @@ MonoBehaviour:
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"PatrolMovementSpeed":{"_value":1.0,"_name":"PatrolMovementSpeed","_id":"eb40a376-06ee-4013-8b8a-2198f8002c61","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"ChaseDistance":{"_value":5.0,"_name":"ChaseDistance","_id":"ed59608c-faad-4044-b82b-eb7e9da4ba4f","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"ChaseSpeed":{"_value":2.0,"_name":"ChaseSpeed","_id":"fc1b2584-e879-4eca-a167-d66e066b2fd2","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"Tase
+    Distance":{"_value":1.0,"_name":"Tase Distance","_id":"49bf0e21-50b9-4474-b818-4c5be911990a","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
   _objectReferences: []
   _serializedVariables:
@@ -152,6 +155,9 @@ MonoBehaviour:
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
   - _json: '{"_value":2.0,"_name":"ChaseSpeed","_id":"fc1b2584-e879-4eca-a167-d66e066b2fd2","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+      mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
+    _references: []
+  - _json: '{"_value":1.0,"_name":"Tase Distance","_id":"49bf0e21-50b9-4474-b818-4c5be911990a","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
 --- !u!114 &7300956206294168048
@@ -194,6 +200,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 410a090fb12e0504195d335fe7d8f8bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 100
+  quadrant: 0
   <Pathfinding>k__BackingField: {fileID: 9061131044671348303}
 --- !u!114 &8957149707047450158
 MonoBehaviour:
@@ -217,6 +225,33 @@ MonoBehaviour:
   bezierTangentLength: 0.4
   offset: 0.2
   factor: 0.1
+--- !u!50 &-5557934226183909814
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735258158487162855}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1645770682431947934
 GameObject:
   m_ObjectHideFlags: 0
