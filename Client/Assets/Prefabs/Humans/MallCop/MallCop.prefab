@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5407610683832502860}
   - component: {fileID: 4065720304667011665}
   - component: {fileID: 7300956206294168048}
+  - component: {fileID: 8957149707047450158}
   m_Layer: 0
   m_Name: MallCop
   m_TagString: Untagged
@@ -142,20 +143,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _parentBlackboard: {fileID: 0}
-  _serializedBlackboard: '{"_variables":{"PatrolPoints":{"_value":[null,null,null,null,null],"_name":"PatrolPoints","_id":"734c3527-e89b-430e-8251-417ece5744ce","$type":"NodeCanvas.Framework.Variable`1[[System.Collections.Generic.List`1[[UnityEngine.Transform,
+  _serializedBlackboard: '{"_variables":{"PatrolPoints":{"_value":[null,null,null],"_name":"PatrolPoints","_id":"734c3527-e89b-430e-8251-417ece5744ce","$type":"NodeCanvas.Framework.Variable`1[[System.Collections.Generic.List`1[[UnityEngine.Transform,
     UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]],
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"WaitTime":{"_name":"WaitTime","_id":"27f62ebf-f03a-49ec-8914-a7053029d643","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"WaitTime":{"_value":2.0,"_name":"WaitTime","_id":"27f62ebf-f03a-49ec-8914-a7053029d643","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"PatrolMovementSpeed":{"_value":1.0,"_name":"PatrolMovementSpeed","_id":"eb40a376-06ee-4013-8b8a-2198f8002c61","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"ChaseDistance":{"_value":5.0,"_name":"ChaseDistance","_id":"ed59608c-faad-4044-b82b-eb7e9da4ba4f","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"ChaseSpeed":{"_value":5.0,"_name":"ChaseSpeed","_id":"fc1b2584-e879-4eca-a167-d66e066b2fd2","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
   _objectReferences: []
   _serializedVariables:
-  - _json: '{"_value":[null,null,null,null,null],"_name":"PatrolPoints","_id":"734c3527-e89b-430e-8251-417ece5744ce","$type":"NodeCanvas.Framework.Variable`1[[System.Collections.Generic.List`1[[UnityEngine.Transform,
+  - _json: '{"_value":[null,null,null],"_name":"PatrolPoints","_id":"734c3527-e89b-430e-8251-417ece5744ce","$type":"NodeCanvas.Framework.Variable`1[[System.Collections.Generic.List`1[[UnityEngine.Transform,
       UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]],
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
-  - _json: '{"_name":"WaitTime","_id":"27f62ebf-f03a-49ec-8914-a7053029d643","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+  - _json: '{"_value":2.0,"_name":"WaitTime","_id":"27f62ebf-f03a-49ec-8914-a7053029d643","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
   - _json: '{"_value":1.0,"_name":"PatrolMovementSpeed","_id":"eb40a376-06ee-4013-8b8a-2198f8002c61","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
@@ -195,6 +196,28 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
+--- !u!114 &8957149707047450158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735258158487162855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb6a34d769a1e4ac7b0b30e433aa443c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  smoothType: 0
+  subdivisions: 2
+  iterations: 2
+  strength: 0.5
+  uniformLength: 1
+  maxSegmentLength: 0.5
+  bezierTangentLength: 0.4
+  offset: 0.2
+  factor: 0.1
 --- !u!1 &1645770682431947934
 GameObject:
   m_ObjectHideFlags: 0
