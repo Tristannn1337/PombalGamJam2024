@@ -31,6 +31,11 @@ public class Human : MonoBehaviour
     {
         return hidingSpots.GetHidingSpot(quadrant);
     }
+    public void TurnTowardsFish()
+    {
+        Vector2 fishDirection = (FishTransform.position - transform.position).normalized;
+        transform.right = fishDirection;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.TryGetComponent(out QuadrantTrigger quadrantTrigger))
