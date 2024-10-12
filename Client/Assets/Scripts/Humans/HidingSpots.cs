@@ -17,15 +17,15 @@ public class HidingSpots : MonoBehaviour
         {
             quadrantsToChooseFrom.AddRange(topLeftHidingSpots);
         }
-        else if(enemyQuadrant != Quadrant.TopRight)
+        if(enemyQuadrant != Quadrant.TopRight)
         {
             quadrantsToChooseFrom.AddRange(topRightHidingSpots);
         }
-        else if(enemyQuadrant != Quadrant.BottomLeft)
+        if(enemyQuadrant != Quadrant.BottomLeft)
         {
             quadrantsToChooseFrom.AddRange(bottomLeftHidingSpots);
         }
-        else if(enemyQuadrant != Quadrant.BottomRight)
+        if(enemyQuadrant != Quadrant.BottomRight)
         {
             quadrantsToChooseFrom.AddRange(bottomRightHidingSpots);
         }

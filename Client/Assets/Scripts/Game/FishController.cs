@@ -19,8 +19,15 @@ namespace Pombal {
         [SerializeField] private Vector2 _randomRenderingRotation = new Vector2(20f, 60f);
         [SerializeField] private Vector2 _randomMovementRotation = new Vector2(5f, 15f);
 
+        [Header("Collision Settings")]
+        [SerializeField] private float _collisionRadius = 2f;
+        [SerializeField] private Vector2 _collisionOffset = Vector2.zero;
+        [SerializeField] private LayerMask _collisionMask;
+
+
+
         [Header("References")]
-        [SerializeField] private Transform _renderingTransform;
+        [SerializeField] private Transform _fishTransform;
         private Rigidbody2D _rb;
         private Rigidbody2D Rb => _rb = _rb ?? GetComponent<Rigidbody2D>();
 
@@ -77,8 +84,8 @@ namespace Pombal {
 
             _randomRotationPolarity *= -1;
             //Save Transform data
-            Vector2 startRenderingTransformScale = _renderingTransform.localScale;
-            Quaternion startRenderingTransformRotation = _renderingTransform.rotation;
+            Vector2 startRenderingTransformScale = transform.localScale;
+            Quaternion startRenderingTransformRotation = transform.rotation;
 
             //Add Random DIrection
             float flopDirectionAngle = Mathf.Atan2(flopDirection.y, flopDirection.x) * Mathf.Rad2Deg;
@@ -93,26 +100,79 @@ namespace Pombal {
             Quaternion targetRotation = Quaternion.FromToRotation(startRenderingTransformRotation * Vector3.right, -flopDirection) * startRenderingTransformRotation;
             targetRotation *= randomAddedRotation;
 
+            //bool flopInterrupted = false;
 
             //Flop
-            while (Time.time < flopStartTime + _flopDuration) {
 
-                float t = (Time.time - flopStartTime) / _flopDuration;
+            float t = 0;
+            float flopDuration = _flopDuration;
+            while (t < 1) {
+
+                t = (Time.time - flopStartTime) / flopDuration;
+
                 float flopCurveT = _flopCurve.Evaluate(t);
                 float scaleT = flopCurveT <= 0.5f ? flopCurveT * 2 : (1 - flopCurveT) * 2;
 
+
                 Rb.position = Vector2.Lerp(startPosition, targetPosition, flopCurveT);//lerp rb movement
-                _renderingTransform.localScale = Vector2.Lerp(startRenderingTransformScale, startRenderingTransformScale * _flopApexSizeMultiplier, scaleT);//lerp rendering scale
-                _renderingTransform.rotation = Quaternion.Slerp(startRenderingTransformRotation, targetRotation, flopCurveT);// lerp rendering rotation
+                transform.localScale = Vector2.Lerp(startRenderingTransformScale, startRenderingTransformScale * _flopApexSizeMultiplier, scaleT);//lerp rendering scale
+                transform.rotation = Quaternion.Slerp(startRenderingTransformRotation, targetRotation, flopCurveT);// lerp rendering rotation
+
+                //Check for collision bounce
+                Vector2 collisionNormal;
+                if (CheckForCollision((Vector2)transform.position + (_collisionOffset * -(Vector2)transform.right), _collisionRadius, -transform.right, _collisionMask, out collisionNormal)) {
+
+
+
+                    float remainingT = Mathf.Max(0, 1 - t);
+                    Debug.Log("Collided, remaining T: " + remainingT);
+                    //ResetT
+                    flopDuration *= remainingT;
+                    flopStartTime = Time.time;
+
+                    //ResetDirection
+                    Vector2 newDirection = collisionNormal;
+                    targetPosition = (Vector2)transform.position + newDirection.normalized * _flopDistance * remainingT;
+
+                    transform.right = -newDirection;
+
+                    targetRotation = Quaternion.FromToRotation(transform.rotation * Vector3.right, -newDirection) * transform.rotation;
+                    targetRotation *= randomAddedRotation;
+
+                    //flopInterrupted = true;
+
+                }
                 yield return null;
             }
 
             Rb.position = targetPosition;
-            _renderingTransform.localScale = startRenderingTransformScale;
-            _renderingTransform.rotation = targetRotation;
+            _fishTransform.localScale = startRenderingTransformScale;
+            _fishTransform.rotation = targetRotation;
+
 
             yield return new WaitForSeconds(_flopCooldown);
             FishMovementState = FishMovementStates.Idling;
+        }
+
+        private bool CheckForCollision(Vector2 origin, float radius, Vector2 direction, LayerMask layerMask, out Vector2 collisionNormal) {
+
+            RaycastHit2D hit = Physics2D.CircleCast(origin, radius, direction, 0f, layerMask);
+
+            if (hit.collider != null) {
+                collisionNormal = hit.normal;
+                Debug.Log(hit.transform.gameObject.name);
+                return true;
+            } else {
+                collisionNormal = Vector2.zero;
+                return false;
+            }
+        }
+
+        private void OnDrawGizmos() {
+            // Draw the circle at the origin
+            Gizmos.color = Color.red;
+            Vector2 position = (Vector2)transform.position + (_collisionOffset.x * -(Vector2)transform.right);
+            Gizmos.DrawWireSphere(position, _collisionRadius);
         }
     }
 }
