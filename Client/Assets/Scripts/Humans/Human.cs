@@ -18,7 +18,7 @@ public class Human : MonoBehaviour
 
     private void Awake()
     {
-        fish = FindObjectOfType<FishController>();
+        fish = FindObjectOfType<FishController>(true);
         hidingSpots = FindObjectOfType<HidingSpots>();
         currentHealth = maxHealth;
 

@@ -9,7 +9,6 @@ using UnityEngine;
 public class ObstacleConditionTask : ConditionTask<Human>
 {
     public BBParameter<LayerMask> obstacleLayer = default;
-    public BBParameter<float> distance = 0f;
     protected override string info
     {
         get { return $"Doesn't have obstacle in player direction"; }
@@ -20,8 +19,9 @@ public class ObstacleConditionTask : ConditionTask<Human>
         if (agent.FishTransform == null) return false;
 
         Vector2 raycastDirection = (agent.FishTransform.position - agent.transform.position).normalized;
-        var raycastHit2D = Physics2D.Raycast(agent.transform.position, raycastDirection, distance.value, obstacleLayer.value);
+        float distance = Vector2.Distance(agent.FishTransform.position, agent.transform.position);
+        var raycastHit2D = Physics2D.Raycast(agent.transform.position, raycastDirection, distance, obstacleLayer.value);
 
-        return raycastHit2D.transform != null;
+        return raycastHit2D.transform == null;
     }
 }
