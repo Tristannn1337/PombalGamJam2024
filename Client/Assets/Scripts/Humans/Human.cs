@@ -3,11 +3,39 @@ using UnityEngine;
 
 public class Human : MonoBehaviour
 {
-    [field: SerializeField] public FishController Fish { get; private set; }
+
+    [SerializeField] float maxHealth = 100;
+
+    Quadrant quadrant;
+    float currentHealth;
+
     [field: SerializeField] public AIPathfinding Pathfinding { get; private set; }
+    FishController fish;
+    HidingSpots hidingSpots;
+
+    public Transform FishTransform => fish != null ? fish.transform : null;
+    public bool IsDead => currentHealth <= 0;
 
     private void Awake()
     {
-        Fish = FindObjectOfType<FishController>();
+        fish = FindObjectOfType<FishController>();
+        hidingSpots = FindObjectOfType<HidingSpots>();
+        currentHealth = maxHealth;
+
+    }
+    public void TakeDamage(float damageAmount)
+    {
+        currentHealth = Mathf.Max(0, currentHealth - damageAmount);
+    }
+    public Transform GetHidingSpot()
+    {
+        return hidingSpots.GetHidingSpot(quadrant);
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.TryGetComponent(out QuadrantTrigger quadrantTrigger))
+        {
+            quadrant = quadrantTrigger.Quadrant;
+        }
     }
 }

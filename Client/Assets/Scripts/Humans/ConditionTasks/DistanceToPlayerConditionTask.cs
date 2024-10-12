@@ -15,9 +15,9 @@ public class DistanceToPlayerConditionTask : ConditionTask<Human>
 
     protected override bool OnCheck()
     {
-        if (agent.Fish == null) return false;
+        if (agent.FishTransform == null) return false;
 
-        var d = Vector3.Distance(agent.transform.position, agent.Fish.transform.position);
+        var d = Vector3.Distance(agent.transform.position, agent.FishTransform.position);
         return OperationTools.Compare((float)d, (float)distance.value, comparison, 0f);
     }
 }
