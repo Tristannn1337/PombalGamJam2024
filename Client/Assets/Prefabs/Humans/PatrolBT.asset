@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a686a47eee2fa44cb0a34b5d86e4d5e, type: 3}
+  m_Name: PatrolBT
+  m_EditorClassIdentifier: 
+  _serializedGraph: '{"type":"NodeCanvas.BehaviourTrees.BehaviourTree","nodes":[{"targetList":{"_name":"PatrolPoints","_targetVariableID":"734c3527-e89b-430e-8251-417ece5744ce"},"current":{"_type":"UnityEngine.Transform","_name":"CurrentPatrolPoint","_targetVariableID":"3724ff4c-af08-40d9-8d70-5fade58b9310"},"storeIndex":{"_name":"currentIndex","_targetVariableID":"bd160a6f-b5dd-40e3-a75c-eab7ec78c69b"},"maxIteration":{"_value":-1},"_position":{"x":-347.7224,"y":58.12777},"$type":"NodeCanvas.BehaviourTrees.Iterator","$id":"0"},{"_position":{"x":-292.2433,"y":201.9791},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"1"},{"_action":{"Target":{"_name":"CurrentPatrolPoint","_targetVariableID":"3724ff4c-af08-40d9-8d70-5fade58b9310"},"MovementSpeed":{"_name":"PatrolMovementSpeed","_targetVariableID":"eb40a376-06ee-4013-8b8a-2198f8002c61"},"PathUpdateTime":{"_value":0.5},"$type":"MoveToTargetActionTask"},"_position":{"x":-401.7249,"y":347.2619},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"2"},{"_action":{"waitTime":{"_name":"WaitTime","_targetVariableID":"27f62ebf-f03a-49ec-8914-a7053029d643"},"$type":"NodeCanvas.Tasks.Actions.Wait"},"_position":{"x":-181.4127,"y":353.6254},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"3"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{"currentIndex":{"_name":"currentIndex","_id":"bd160a6f-b5dd-40e3-a75c-eab7ec78c69b","$type":"NodeCanvas.Framework.Variable`1[[System.Int32,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"CurrentPatrolPoint":{"_name":"CurrentPatrolPoint","_id":"3724ff4c-af08-40d9-8d70-5fade58b9310","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Transform,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}},"derivedData":{"repeat":true,"$type":"NodeCanvas.BehaviourTrees.BehaviourTree+DerivedSerializationData"}}'
+  _objectReferences: []
+  _graphSource:
+    _version: 3.3
+    _category: 
+    _comments: 
+    _translation: {x: 472, y: 216}
+    _zoomFactor: 0.71222067
+  _haltSerialization: 0
+  _externalSerializationFile: {fileID: 0}

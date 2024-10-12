@@ -54,7 +54,6 @@ public class AIPathfinding : MonoBehaviour
         if (currentWaypoint < path.vectorPath.Count)
         {
             return path.vectorPath[currentWaypoint];
-
         }
         return null;
     }
