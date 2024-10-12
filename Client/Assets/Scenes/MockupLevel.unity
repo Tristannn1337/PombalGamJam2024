@@ -2662,7 +2662,7 @@ GameObject:
   - component: {fileID: 90239345}
   - component: {fileID: 90239344}
   - component: {fileID: 90239343}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Half Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5189,7 +5189,7 @@ Transform:
   m_GameObject: {fileID: 255556040}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -62, y: -52.75, z: 0}
+  m_LocalPosition: {x: -62, y: -53, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5243,7 +5243,7 @@ GameObject:
   - component: {fileID: 260813012}
   - component: {fileID: 260813011}
   - component: {fileID: 260813010}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Trapezoid Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5441,6 +5441,16 @@ Tilemap:
       serializedVersion: 2
       m_TileIndex: 5
       m_TileSpriteIndex: 5
+      m_TileMatrixIndex: 3
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: 3, y: -6, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 3
+      m_TileSpriteIndex: 3
       m_TileMatrixIndex: 3
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -5824,7 +5834,7 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 7
+  - m_RefCount: 8
     m_Data: {fileID: 11400000, guid: f1c0bcfc6de83437d8f556e982f51352, type: 2}
   - m_RefCount: 3
     m_Data: {fileID: 11400000, guid: 89939de89352348518222a18ad8a5aa3, type: 2}
@@ -5839,7 +5849,7 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 7
+  - m_RefCount: 8
     m_Data: {fileID: -296837661, guid: 3c1b7200635fc46f3b0585ea1f1bf9bb, type: 3}
   - m_RefCount: 3
     m_Data: {fileID: 1361278232, guid: 3c1b7200635fc46f3b0585ea1f1bf9bb, type: 3}
@@ -5902,7 +5912,7 @@ Tilemap:
       e31: 0
       e32: 0
       e33: 1
-  - m_RefCount: 29
+  - m_RefCount: 30
     m_Data:
       e00: 1
       e01: 0
@@ -5993,7 +6003,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 43
+  - m_RefCount: 44
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -6044,7 +6054,7 @@ Transform:
   m_GameObject: {fileID: 281378142}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -8, y: -52.75, z: 0}
+  m_LocalPosition: {x: -8, y: -53, z: 0}
   m_LocalScale: {x: -1, y: -1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14301,7 +14311,7 @@ GameObject:
   - component: {fileID: 332581018}
   - component: {fileID: 332581017}
   - component: {fileID: 332581016}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bathroom Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19014,7 +19024,7 @@ GameObject:
   - component: {fileID: 582928149}
   - component: {fileID: 582928148}
   - component: {fileID: 582928147}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Half Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22913,7 +22923,7 @@ GameObject:
   - component: {fileID: 922169013}
   - component: {fileID: 922169012}
   - component: {fileID: 922169011}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Half Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23572,7 +23582,7 @@ GameObject:
   - component: {fileID: 937015041}
   - component: {fileID: 937015040}
   - component: {fileID: 937015039}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Half Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27339,7 +27349,7 @@ GameObject:
   - component: {fileID: 960307431}
   - component: {fileID: 960307430}
   - component: {fileID: 960307429}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Trapezoid Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27537,6 +27547,16 @@ Tilemap:
       serializedVersion: 2
       m_TileIndex: 5
       m_TileSpriteIndex: 5
+      m_TileMatrixIndex: 3
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: 3, y: -6, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 3
+      m_TileSpriteIndex: 3
       m_TileMatrixIndex: 3
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -27920,7 +27940,7 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 7
+  - m_RefCount: 8
     m_Data: {fileID: 11400000, guid: f1c0bcfc6de83437d8f556e982f51352, type: 2}
   - m_RefCount: 3
     m_Data: {fileID: 11400000, guid: 89939de89352348518222a18ad8a5aa3, type: 2}
@@ -27935,7 +27955,7 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 7
+  - m_RefCount: 8
     m_Data: {fileID: -296837661, guid: 3c1b7200635fc46f3b0585ea1f1bf9bb, type: 3}
   - m_RefCount: 3
     m_Data: {fileID: 1361278232, guid: 3c1b7200635fc46f3b0585ea1f1bf9bb, type: 3}
@@ -27998,7 +28018,7 @@ Tilemap:
       e31: 0
       e32: 0
       e33: 1
-  - m_RefCount: 29
+  - m_RefCount: 30
     m_Data:
       e00: 1
       e01: 0
@@ -28089,7 +28109,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 43
+  - m_RefCount: 44
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -32823,7 +32843,7 @@ GameObject:
   - component: {fileID: 1200921142}
   - component: {fileID: 1200921141}
   - component: {fileID: 1200921140}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bathroom Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34362,7 +34382,7 @@ GameObject:
   - component: {fileID: 1217265697}
   - component: {fileID: 1217265696}
   - component: {fileID: 1217265695}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Half Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35031,7 +35051,7 @@ GameObject:
   - component: {fileID: 1237240623}
   - component: {fileID: 1237240626}
   - component: {fileID: 1237240627}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bathroom Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36570,7 +36590,7 @@ GameObject:
   - component: {fileID: 1253110156}
   - component: {fileID: 1253110155}
   - component: {fileID: 1253110154}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Half Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37330,7 +37350,7 @@ GameObject:
   - component: {fileID: 1337593190}
   - component: {fileID: 1337593189}
   - component: {fileID: 1337593188}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Trapezoid Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37473,6 +37493,16 @@ Tilemap:
   m_GameObject: {fileID: 1337593186}
   m_Enabled: 1
   m_Tiles:
+  - first: {x: -42, y: -6, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 3
+      m_TileSpriteIndex: 3
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   - first: {x: -6, y: -6, z: 0}
     second:
       serializedVersion: 2
@@ -37528,6 +37558,16 @@ Tilemap:
       serializedVersion: 2
       m_TileIndex: 5
       m_TileSpriteIndex: 5
+      m_TileMatrixIndex: 3
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: 3, y: -6, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 3
+      m_TileSpriteIndex: 3
       m_TileMatrixIndex: 3
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -37911,7 +37951,7 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 7
+  - m_RefCount: 9
     m_Data: {fileID: 11400000, guid: f1c0bcfc6de83437d8f556e982f51352, type: 2}
   - m_RefCount: 3
     m_Data: {fileID: 11400000, guid: 89939de89352348518222a18ad8a5aa3, type: 2}
@@ -37926,7 +37966,7 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 7
+  - m_RefCount: 9
     m_Data: {fileID: -296837661, guid: 3c1b7200635fc46f3b0585ea1f1bf9bb, type: 3}
   - m_RefCount: 3
     m_Data: {fileID: 1361278232, guid: 3c1b7200635fc46f3b0585ea1f1bf9bb, type: 3}
@@ -37935,7 +37975,7 @@ Tilemap:
   - m_RefCount: 24
     m_Data: {fileID: -2089297608, guid: 3c1b7200635fc46f3b0585ea1f1bf9bb, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 1
+  - m_RefCount: 2
     m_Data:
       e00: 0
       e01: 1
@@ -37989,7 +38029,7 @@ Tilemap:
       e31: 0
       e32: 0
       e33: 1
-  - m_RefCount: 29
+  - m_RefCount: 30
     m_Data:
       e00: 1
       e01: 0
@@ -38080,13 +38120,13 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 43
+  - m_RefCount: 45
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 0.3773585, g: 0.3773585, b: 0.3773585, a: 1}
-  m_Origin: {x: -6, y: -15, z: 0}
-  m_Size: {x: 41, y: 20, z: 1}
+  m_Origin: {x: -42, y: -15, z: 0}
+  m_Size: {x: 77, y: 20, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
@@ -95734,7 +95774,7 @@ GameObject:
   - component: {fileID: 1456554487}
   - component: {fileID: 1456554486}
   - component: {fileID: 1456554485}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Half Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96393,7 +96433,7 @@ GameObject:
   - component: {fileID: 1472217451}
   - component: {fileID: 1472217450}
   - component: {fileID: 1472217449}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Half Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97052,7 +97092,7 @@ GameObject:
   - component: {fileID: 1480891553}
   - component: {fileID: 1480891552}
   - component: {fileID: 1480891551}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Trapezoid Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97250,6 +97290,16 @@ Tilemap:
       serializedVersion: 2
       m_TileIndex: 5
       m_TileSpriteIndex: 5
+      m_TileMatrixIndex: 3
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: 3, y: -6, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 3
+      m_TileSpriteIndex: 3
       m_TileMatrixIndex: 3
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -97633,7 +97683,7 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 7
+  - m_RefCount: 8
     m_Data: {fileID: 11400000, guid: f1c0bcfc6de83437d8f556e982f51352, type: 2}
   - m_RefCount: 3
     m_Data: {fileID: 11400000, guid: 89939de89352348518222a18ad8a5aa3, type: 2}
@@ -97648,7 +97698,7 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 7
+  - m_RefCount: 8
     m_Data: {fileID: -296837661, guid: 3c1b7200635fc46f3b0585ea1f1bf9bb, type: 3}
   - m_RefCount: 3
     m_Data: {fileID: 1361278232, guid: 3c1b7200635fc46f3b0585ea1f1bf9bb, type: 3}
@@ -97711,7 +97761,7 @@ Tilemap:
       e31: 0
       e32: 0
       e33: 1
-  - m_RefCount: 29
+  - m_RefCount: 30
     m_Data:
       e00: 1
       e01: 0
@@ -97802,7 +97852,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 43
+  - m_RefCount: 44
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -99465,7 +99515,7 @@ GameObject:
   - component: {fileID: 1524763755}
   - component: {fileID: 1524763754}
   - component: {fileID: 1524763753}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Trapezoid Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99663,6 +99713,16 @@ Tilemap:
       serializedVersion: 2
       m_TileIndex: 5
       m_TileSpriteIndex: 5
+      m_TileMatrixIndex: 3
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: 3, y: -6, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 3
+      m_TileSpriteIndex: 3
       m_TileMatrixIndex: 3
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -100046,7 +100106,7 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 7
+  - m_RefCount: 8
     m_Data: {fileID: 11400000, guid: f1c0bcfc6de83437d8f556e982f51352, type: 2}
   - m_RefCount: 3
     m_Data: {fileID: 11400000, guid: 89939de89352348518222a18ad8a5aa3, type: 2}
@@ -100061,7 +100121,7 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 7
+  - m_RefCount: 8
     m_Data: {fileID: -296837661, guid: 3c1b7200635fc46f3b0585ea1f1bf9bb, type: 3}
   - m_RefCount: 3
     m_Data: {fileID: 1361278232, guid: 3c1b7200635fc46f3b0585ea1f1bf9bb, type: 3}
@@ -100124,7 +100184,7 @@ Tilemap:
       e31: 0
       e32: 0
       e33: 1
-  - m_RefCount: 29
+  - m_RefCount: 30
     m_Data:
       e00: 1
       e01: 0
@@ -100215,7 +100275,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 43
+  - m_RefCount: 44
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -101808,7 +101868,7 @@ GameObject:
   - component: {fileID: 1541244089}
   - component: {fileID: 1541244088}
   - component: {fileID: 1541244087}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Trapezoid Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102011,6 +102071,16 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+  - first: {x: 3, y: -6, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 3
+      m_TileSpriteIndex: 3
+      m_TileMatrixIndex: 3
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   - first: {x: -6, y: -5, z: 0}
     second:
       serializedVersion: 2
@@ -102389,7 +102459,7 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 7
+  - m_RefCount: 8
     m_Data: {fileID: 11400000, guid: f1c0bcfc6de83437d8f556e982f51352, type: 2}
   - m_RefCount: 3
     m_Data: {fileID: 11400000, guid: 89939de89352348518222a18ad8a5aa3, type: 2}
@@ -102404,7 +102474,7 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 7
+  - m_RefCount: 8
     m_Data: {fileID: -296837661, guid: 3c1b7200635fc46f3b0585ea1f1bf9bb, type: 3}
   - m_RefCount: 3
     m_Data: {fileID: 1361278232, guid: 3c1b7200635fc46f3b0585ea1f1bf9bb, type: 3}
@@ -102467,7 +102537,7 @@ Tilemap:
       e31: 0
       e32: 0
       e33: 1
-  - m_RefCount: 29
+  - m_RefCount: 30
     m_Data:
       e00: 1
       e01: 0
@@ -102558,7 +102628,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 43
+  - m_RefCount: 44
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -102630,7 +102700,7 @@ GameObject:
   - component: {fileID: 1590834698}
   - component: {fileID: 1590834697}
   - component: {fileID: 1590834696}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Trapezoid Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102833,6 +102903,16 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+  - first: {x: 3, y: -6, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 3
+      m_TileSpriteIndex: 3
+      m_TileMatrixIndex: 3
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   - first: {x: -6, y: -5, z: 0}
     second:
       serializedVersion: 2
@@ -103211,7 +103291,7 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 7
+  - m_RefCount: 8
     m_Data: {fileID: 11400000, guid: f1c0bcfc6de83437d8f556e982f51352, type: 2}
   - m_RefCount: 3
     m_Data: {fileID: 11400000, guid: 89939de89352348518222a18ad8a5aa3, type: 2}
@@ -103226,7 +103306,7 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 7
+  - m_RefCount: 8
     m_Data: {fileID: -296837661, guid: 3c1b7200635fc46f3b0585ea1f1bf9bb, type: 3}
   - m_RefCount: 3
     m_Data: {fileID: 1361278232, guid: 3c1b7200635fc46f3b0585ea1f1bf9bb, type: 3}
@@ -103289,7 +103369,7 @@ Tilemap:
       e31: 0
       e32: 0
       e33: 1
-  - m_RefCount: 29
+  - m_RefCount: 30
     m_Data:
       e00: 1
       e01: 0
@@ -103380,7 +103460,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 43
+  - m_RefCount: 44
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -105913,7 +105993,7 @@ GameObject:
   - component: {fileID: 1741344633}
   - component: {fileID: 1741344632}
   - component: {fileID: 1741344631}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bathroom Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107452,7 +107532,7 @@ GameObject:
   - component: {fileID: 1746169896}
   - component: {fileID: 1746169895}
   - component: {fileID: 1746169894}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Trapezoid Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108241,7 +108321,7 @@ GameObject:
   - component: {fileID: 1747027225}
   - component: {fileID: 1747027224}
   - component: {fileID: 1747027223}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Half Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112107,7 +112187,7 @@ GameObject:
   - component: {fileID: 1871482242}
   - component: {fileID: 1871482241}
   - component: {fileID: 1871482240}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115740,7 +115820,7 @@ GameObject:
   - component: {fileID: 1983113476}
   - component: {fileID: 1983113475}
   - component: {fileID: 1983113474}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Mall Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117222,7 +117302,7 @@ GameObject:
   - component: {fileID: 2000920095}
   - component: {fileID: 2000920094}
   - component: {fileID: 2000920093}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
