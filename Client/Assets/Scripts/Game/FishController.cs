@@ -131,7 +131,7 @@ namespace Pombal {
                 Vector2 collisionNormal;
                 if (CheckForCollision((Vector2)transform.position + (_collisionOffset * -(Vector2)transform.right), _collisionRadius, -transform.right, _collisionMask, out collisionNormal)) {
 
-                    float remainingT = .2f;
+                    float remainingT = .3f;
                     //float remainingT = Mathf.Max(0, 1 - t);
                     flopDuration *= remainingT;
                     flopStartTime = Time.time;
@@ -184,4 +184,6 @@ namespace Pombal {
             return Vector2.Dot(direction, Vector2.right) > Vector2.Dot(direction, Vector2.left);
         }
     }
+
+
 }
