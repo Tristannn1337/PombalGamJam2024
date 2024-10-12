@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7792329175340178171}
   - component: {fileID: 6103749641097220122}
   - component: {fileID: 6552425605519412442}
+  - component: {fileID: -3099753031124193598}
   m_Layer: 0
   m_Name: ScarePersonPatrol
   m_TagString: Untagged
@@ -133,10 +134,9 @@ MonoBehaviour:
     UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]],
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"WaitTime":{"_value":2.0,"_name":"WaitTime","_id":"27f62ebf-f03a-49ec-8914-a7053029d643","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"PatrolMovementSpeed":{"_value":1.0,"_name":"PatrolMovementSpeed","_id":"eb40a376-06ee-4013-8b8a-2198f8002c61","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"ChaseDistance":{"_value":5.0,"_name":"ChaseDistance","_id":"ed59608c-faad-4044-b82b-eb7e9da4ba4f","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"ChaseSpeed":{"_value":2.0,"_name":"ChaseSpeed","_id":"fc1b2584-e879-4eca-a167-d66e066b2fd2","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"Tase
-    Distance":{"_value":1.0,"_name":"Tase Distance","_id":"49bf0e21-50b9-4474-b818-4c5be911990a","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"PanicDistance":{"_value":5.0,"_name":"PanicDistance","_id":"ed59608c-faad-4044-b82b-eb7e9da4ba4f","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"PanicSpeed":{"_value":3.0,"_name":"PanicSpeed","_id":"fc1b2584-e879-4eca-a167-d66e066b2fd2","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"HideTime":{"_value":5.0,"_name":"HideTime","_id":"38942eb2-d99c-4398-9151-f953f175256a","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}'
   _objectReferences: []
   _serializedVariables:
@@ -150,13 +150,13 @@ MonoBehaviour:
   - _json: '{"_value":1.0,"_name":"PatrolMovementSpeed","_id":"eb40a376-06ee-4013-8b8a-2198f8002c61","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
-  - _json: '{"_value":5.0,"_name":"ChaseDistance","_id":"ed59608c-faad-4044-b82b-eb7e9da4ba4f","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+  - _json: '{"_value":5.0,"_name":"PanicDistance","_id":"ed59608c-faad-4044-b82b-eb7e9da4ba4f","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
-  - _json: '{"_value":2.0,"_name":"ChaseSpeed","_id":"fc1b2584-e879-4eca-a167-d66e066b2fd2","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+  - _json: '{"_value":3.0,"_name":"PanicSpeed","_id":"fc1b2584-e879-4eca-a167-d66e066b2fd2","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
-  - _json: '{"_value":1.0,"_name":"Tase Distance","_id":"49bf0e21-50b9-4474-b818-4c5be911990a","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+  - _json: '{"_value":5.0,"_name":"HideTime","_id":"38942eb2-d99c-4398-9151-f953f175256a","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
       mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}'
     _references: []
 --- !u!114 &7792329175340178171
@@ -222,7 +222,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  quadrant: 0
   <Pathfinding>k__BackingField: {fileID: 8683180433285389177}
+--- !u!50 &-3099753031124193598
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4070813868266553655}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &7463300290393164690
 GameObject:
   m_ObjectHideFlags: 0
