@@ -34,13 +34,14 @@ public class MoveToTargetActionTask : ActionTask<Human>
         if (!agent.Pathfinding.PathExists()) return;
 
         Vector2? nextWaypoint = agent.Pathfinding.GetNextWaypoint();
-        if(nextWaypoint == null) return;
-
-        agent.transform.position = Vector2.MoveTowards(agent.transform.position, (Vector2)nextWaypoint, MovementSpeed.value * Time.deltaTime);
-
         if (agent.Pathfinding.ReachedDestination(Target.value.position))
         {
             EndAction(true);
         }
+        if (nextWaypoint == null) return;
+
+        agent.transform.position = Vector2.MoveTowards(agent.transform.position, (Vector2)nextWaypoint, MovementSpeed.value * Time.deltaTime);
+
+
     }
 }
