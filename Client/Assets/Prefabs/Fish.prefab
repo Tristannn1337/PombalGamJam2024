@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 9108948095885926048}
   - component: {fileID: 6590541598108702288}
   - component: {fileID: 7280325474739523117}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Fish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,7 +192,13 @@ MonoBehaviour:
   _flopApexSizeMultiplier: 1.15
   _randomRenderingRotation: {x: 15, y: 30}
   _randomMovementRotation: {x: 5, y: 15}
-  _renderingTransform: {fileID: 8245086138668803246}
+  _collisionRadius: 0.7
+  _collisionOffset: {x: 0.8, y: 0}
+  _collisionMask:
+    serializedVersion: 2
+    m_Bits: 64
+  _fishTransform: {fileID: 9108948095885926048}
+  _debugObj: {fileID: 8511541558990349243, guid: 06ef37c4310480145bdd66667ceffadf, type: 3}
   FishMovementState: 0
 --- !u!50 &7280325474739523117
 Rigidbody2D:
