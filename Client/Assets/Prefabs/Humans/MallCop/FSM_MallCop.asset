@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f945e777233a59f4aba40aeca29093a6, type: 3}
+  m_Name: FSM_MallCop
+  m_EditorClassIdentifier: 
+  _serializedGraph: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_nestedBT":{"_value":1},"_position":{"x":97.12574,"y":-215.5412},"$type":"NodeCanvas.StateMachines.NestedBTState"}],"connections":[],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
+  _objectReferences:
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 3b4504d52fd46004eab586ddec48973d, type: 2}
+  _graphSource:
+    _version: 3.3
+    _category: 
+    _comments: 
+    _translation: {x: 311, y: 458}
+    _zoomFactor: 0.8131944
+  _haltSerialization: 0
+  _externalSerializationFile: {fileID: 0}
