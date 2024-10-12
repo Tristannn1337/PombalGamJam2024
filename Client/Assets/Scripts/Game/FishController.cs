@@ -16,7 +16,8 @@ namespace Pombal {
         [SerializeField] private float _flopCooldown = .1f;
         [SerializeField] private AnimationCurve _flopCurve;
         [SerializeField] private float _flopApexSizeMultiplier = 1.1f;
-
+        [SerializeField] private Vector2 _randomRenderingRotation = new Vector2(20f, 60f);
+        [SerializeField] private Vector2 _randomMovementRotation = new Vector2(5f, 15f);
 
         [Header("References")]
         [SerializeField] private Transform _renderingTransform;
@@ -26,7 +27,8 @@ namespace Pombal {
         [Header("Debugging")]
         [SerializeField, ReadOnly] private FishMovementStates FishMovementState;
 
-        private Vector2 lastMoveInputDirection;
+        private Vector2 _lastMoveInputDirection;
+        private int _randomRotationPolarity = 1;
 
         private void OnEnable() {
 
@@ -55,7 +57,7 @@ namespace Pombal {
 
         private void OnMoveInput(Vector2 input) {
 
-            lastMoveInputDirection = input.normalized;
+            _lastMoveInputDirection = input.normalized;
         }
 
         private IEnumerator Flopping() {
@@ -63,15 +65,36 @@ namespace Pombal {
             FishMovementState = FishMovementStates.Flopping;
 
             float flopStartTime = Time.time;
-            Vector2 flopDirection = lastMoveInputDirection;
+            Vector2 flopDirection = _lastMoveInputDirection;
 
-            Vector2 startPosition = Rb.position;
-            Vector2 targetPosition = startPosition + flopDirection * _flopDistance;
+            //Get Random Rotation
+            float randomRotationAddedInDeg = Random.Range(Mathf.Abs(_randomRenderingRotation.x), Mathf.Abs(_randomRenderingRotation.y));
+            Quaternion randomAddedRotation = Quaternion.Euler(new Vector3(0, 0, randomRotationAddedInDeg * _randomRotationPolarity));
+
+            //Get Random Direction
+            float randomDirectionRotationAddedInDeg = Random.Range(_randomMovementRotation.x, _randomMovementRotation.y);
+            randomDirectionRotationAddedInDeg *= _randomRotationPolarity;
+
+            _randomRotationPolarity *= -1;
+            //Save Transform data
             Vector2 startRenderingTransformScale = _renderingTransform.localScale;
-            //Vector2 startRenderingTransformRight = _renderingTransform.right;
             Quaternion startRenderingTransformRotation = _renderingTransform.rotation;
-            Quaternion targetRotation = Quaternion.FromToRotation(startRenderingTransformRotation * Vector3.right, -flopDirection) * startRenderingTransformRotation;
 
+            //Add Random DIrection
+            float flopDirectionAngle = Mathf.Atan2(flopDirection.y, flopDirection.x) * Mathf.Rad2Deg;
+            float newDirectionAngle = flopDirectionAngle + randomDirectionRotationAddedInDeg;
+            Vector2 adjustedFlopDirection = new Vector2(Mathf.Cos(newDirectionAngle * Mathf.Deg2Rad), Mathf.Sin(newDirectionAngle * Mathf.Deg2Rad)).normalized;
+
+            //Set Target Position
+            Vector2 startPosition = Rb.position;
+            Vector2 targetPosition = startPosition + adjustedFlopDirection.normalized * _flopDistance;
+
+            //Set Target Rotation
+            Quaternion targetRotation = Quaternion.FromToRotation(startRenderingTransformRotation * Vector3.right, -flopDirection) * startRenderingTransformRotation;
+            targetRotation *= randomAddedRotation;
+
+
+            //Flop
             while (Time.time < flopStartTime + _flopDuration) {
 
                 float t = (Time.time - flopStartTime) / _flopDuration;
@@ -80,18 +103,15 @@ namespace Pombal {
 
                 Rb.position = Vector2.Lerp(startPosition, targetPosition, flopCurveT);//lerp rb movement
                 _renderingTransform.localScale = Vector2.Lerp(startRenderingTransformScale, startRenderingTransformScale * _flopApexSizeMultiplier, scaleT);//lerp rendering scale
-                //_renderingTransform.right = Vector2.Lerp(startRenderingTransformRight, -flopDirection, flopCurveT);//Lerp rendering direction
                 _renderingTransform.rotation = Quaternion.Slerp(startRenderingTransformRotation, targetRotation, flopCurveT);// lerp rendering rotation
                 yield return null;
             }
 
             Rb.position = targetPosition;
             _renderingTransform.localScale = startRenderingTransformScale;
-            //_renderingTransform.right = -flopDirection;
             _renderingTransform.rotation = targetRotation;
 
             yield return new WaitForSeconds(_flopCooldown);
-
             FishMovementState = FishMovementStates.Idling;
         }
     }
