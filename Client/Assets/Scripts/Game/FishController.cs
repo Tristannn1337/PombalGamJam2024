@@ -131,25 +131,18 @@ namespace Pombal {
                 Vector2 collisionNormal;
                 if (CheckForCollision((Vector2)transform.position + (_collisionOffset * -(Vector2)transform.right), _collisionRadius, -transform.right, _collisionMask, out collisionNormal)) {
 
-
-
-                    float remainingT = Mathf.Max(0, 1 - t);
-                    Debug.Log("Collided, remaining T: " + remainingT);
-                    //ResetT
+                    float remainingT = .2f;
+                    //float remainingT = Mathf.Max(0, 1 - t);
                     flopDuration *= remainingT;
                     flopStartTime = Time.time;
-
                     //ResetDirection
                     Vector2 newDirection = collisionNormal;
                     targetPosition = (Vector2)transform.position + newDirection.normalized * _flopDistance * remainingT;
 
-                    transform.right = -newDirection;
+                    //transform.right = -newDirection;
 
                     targetRotation = Quaternion.FromToRotation(transform.rotation * Vector3.right, -newDirection) * transform.rotation;
                     targetRotation *= randomAddedRotation;
-
-                    //flopInterrupted = true;
-
                 }
                 yield return null;
             }
