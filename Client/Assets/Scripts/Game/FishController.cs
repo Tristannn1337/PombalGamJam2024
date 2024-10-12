@@ -28,6 +28,7 @@ namespace Pombal {
 
         [Header("References")]
         [SerializeField] private Transform _fishTransform;
+        [SerializeField] private Transform _ramboHolderTransform;
         private Rigidbody2D _rb;
         private Rigidbody2D Rb => _rb = _rb ?? GetComponent<Rigidbody2D>();
 
@@ -36,6 +37,7 @@ namespace Pombal {
 
         private Vector2 _lastMoveInputDirection;
         private int _randomRotationPolarity = 1;
+        private Vector3 _ramboHolderStartScale;
 
         private void OnEnable() {
 
@@ -50,9 +52,16 @@ namespace Pombal {
         }
 
         private void Awake() {
+            _ramboHolderStartScale = _ramboHolderTransform.localScale;
         }
 
         private void Update() {
+
+            if (IsPointedRight(-transform.right)) {
+                _ramboHolderTransform.localScale = new Vector3(_ramboHolderStartScale.x, _ramboHolderStartScale.y * -1, 0);
+            } else {
+                _ramboHolderTransform.localScale = new Vector3(_ramboHolderStartScale.x, _ramboHolderStartScale.y, 0);
+            }
         }
 
         private void OnFlopInput() {
@@ -168,11 +177,18 @@ namespace Pombal {
             }
         }
 
+#if UNITY_EDITOR
         private void OnDrawGizmos() {
             // Draw the circle at the origin
             Gizmos.color = Color.red;
             Vector2 position = (Vector2)transform.position + (_collisionOffset.x * -(Vector2)transform.right);
             Gizmos.DrawWireSphere(position, _collisionRadius);
+        }
+#endif
+
+        private bool IsPointedRight(Vector2 direction) {
+            direction = direction.normalized;
+            return Vector2.Dot(direction, Vector2.right) > Vector2.Dot(direction, Vector2.left);
         }
     }
 }
