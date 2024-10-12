@@ -152,17 +152,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b96487ad50ab28f419aaacbe4cbae47e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _flopDistance: 4
-  _flopDuration: 0.3
-  _flopCooldown: 0.1
+  _flopDistance: 5
+  _flopDuration: 0.4
+  _flopCooldown: 0.05
   _flopCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: 2
+      outSlope: 2
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
@@ -180,6 +180,8 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _flopApexSizeMultiplier: 1.15
+  _randomRenderingRotation: {x: 15, y: 30}
+  _randomMovementRotation: {x: 5, y: 15}
   _renderingTransform: {fileID: 1410247412}
   FishMovementState: 0
 --- !u!50 &3417888
