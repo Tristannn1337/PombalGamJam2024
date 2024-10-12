@@ -7,7 +7,7 @@ public class Human : MonoBehaviour
     [SerializeField] float maxHealth = 100;
 
     [SerializeField] Quadrant quadrant;
-    float currentHealth;
+    [SerializeField, ReadOnly] float currentHealth;
 
     [field: SerializeField] public AIPathfinding Pathfinding { get; private set; }
     FishController fish;
