@@ -68,7 +68,7 @@ public class Human : MonoBehaviour
 
         if(audioClips.Count > 0)
         {
-            audioSource.PlayOneShot(audioClips[Random.Range(0, audioClips.Count)]);
+            audioSource.PlayOneShot(audioClips[Random.Range(0, audioClips.Count)],.6f);
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
