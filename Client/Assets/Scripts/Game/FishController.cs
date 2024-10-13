@@ -31,6 +31,8 @@ namespace Pombal {
         [SerializeField] private Transform _ramboHolderTransform;
         private Rigidbody2D _rb;
         private Rigidbody2D Rb => _rb = _rb ?? GetComponent<Rigidbody2D>();
+        private TrashYummy _trashYummy;
+        private TrashYummy TrashYummy => _trashYummy = _trashYummy ?? GetComponent<TrashYummy>();
 
         [Header("Debugging")]
         [SerializeField, ReadOnly] private FishMovementStates FishMovementState;
@@ -62,6 +64,10 @@ namespace Pombal {
             } else {
                 _ramboHolderTransform.localScale = new Vector3(_ramboHolderStartScale.x, _ramboHolderStartScale.y, 0);
             }
+        }
+
+        public void Hit(int damage) {
+            TrashYummy.Hit(damage);
         }
 
         private void OnFlopInput() {
