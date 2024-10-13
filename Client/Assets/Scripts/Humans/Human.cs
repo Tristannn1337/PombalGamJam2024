@@ -13,10 +13,12 @@ public class Human : MonoBehaviour
     [SerializeField] ParticleSystem bloodOnTheGroundVFX;
     [SerializeField] BubbleBox bubbleBoxPrefab;
     [SerializeField] List<string> runAwayLines;
+    [SerializeField] List<AudioClip> audioClips;
 
     [field: SerializeField] public AIPathfinding Pathfinding { get; private set; }
     protected FishController fish;
     HidingSpots hidingSpots;
+    AudioSource audioSource;
 
     public Transform FishTransform => fish != null ? fish.transform : null;
     public bool IsDead { get; private set; }
@@ -26,6 +28,8 @@ public class Human : MonoBehaviour
         fish = FindObjectOfType<FishController>(true);
         hidingSpots = FindObjectOfType<HidingSpots>();
         currentHealth = maxHealth;
+
+        audioSource = GetComponent<AudioSource>();
 
     }
     public void TakeDamage(float damageAmount)
@@ -62,7 +66,10 @@ public class Human : MonoBehaviour
         BubbleBox bubbleBox = Instantiate(bubbleBoxPrefab, transform.position, Quaternion.identity);
         bubbleBox.ActivateText(GetShoutLine(), transform);
 
-        //Play Sound Here.
+        if(audioClips.Count > 0)
+        {
+            audioSource.PlayOneShot(audioClips[Random.Range(0, audioClips.Count)]);
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

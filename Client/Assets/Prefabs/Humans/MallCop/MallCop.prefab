@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 3789424209511841566}
   - component: {fileID: 8957149707047450158}
   - component: {fileID: -5557934226183909814}
+  - component: {fileID: 2350563155027970026}
   m_Layer: 0
   m_Name: MallCop
   m_TagString: Untagged
@@ -214,6 +215,15 @@ MonoBehaviour:
   - I got my sights on the fish.
   - I'm too old for this &$"!...
   - I don't get payed enough to deal with this!
+  audioClips:
+  - {fileID: 8300000, guid: f8a7b2c24e9b99f4db5bc40afc91cc3d, type: 3}
+  - {fileID: 8300000, guid: 75151304d76ffee4d9d87aa249ea50fa, type: 3}
+  - {fileID: 8300000, guid: c9205f9f73052254fbe82f6f30db17c2, type: 3}
+  - {fileID: 8300000, guid: 843b00286a71d8c48b1e66adece2a48e, type: 3}
+  - {fileID: 8300000, guid: 006ea95dba7a5c240a3f74fd9cb1a1a3, type: 3}
+  - {fileID: 8300000, guid: fdc3fd81d6379844a9de273d2ab36d48, type: 3}
+  - {fileID: 8300000, guid: 0f3a5e6f109dc5d43b30378204755571, type: 3}
+  - {fileID: 8300000, guid: 4b135ead4481a5741a5ad4e231c386c6, type: 3}
   <Pathfinding>k__BackingField: {fileID: 9061131044671348303}
   fishLayer:
     serializedVersion: 2
@@ -285,6 +295,102 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!82 &2350563155027970026
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735258158487162855}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 0.5
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1645770682431947934
 GameObject:
   m_ObjectHideFlags: 0
