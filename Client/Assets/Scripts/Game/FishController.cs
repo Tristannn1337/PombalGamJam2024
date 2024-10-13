@@ -20,11 +20,21 @@ namespace Pombal {
         [SerializeField] private Vector2 _randomRenderingRotation = new Vector2(20f, 60f);
         [SerializeField] private Vector2 _randomMovementRotation = new Vector2(5f, 15f);
 
+
         [Header("Collision Settings")]
         [SerializeField] private float _collisionRadius = 2f;
         [SerializeField] private Vector2 _collisionOffset = Vector2.zero;
         [SerializeField] private LayerMask _collisionMask;
 
+
+        [Header("Audio")]
+        [SerializeField] private AudioSource _slimeAudioSource;
+        [SerializeField] private AudioSource _poingAudioSource;
+        [SerializeField] private AudioSource _flopAudioSource;
+        [SerializeField] private AudioClip[] _flopAudioClips;
+        [SerializeField] private Vector2 _flopPitchRange;
+        [SerializeField] private Vector2 _slimePitchRange;
+        [SerializeField] private Vector2 _poingPitchRange;
 
 
         [Header("References")]
@@ -56,6 +66,7 @@ namespace Pombal {
 
         private void Awake() {
             _ramboHolderStartScale = _ramboHolderTransform.localScale;
+            Rb.freezeRotation = true;
         }
 
         private void Update() {
@@ -88,6 +99,7 @@ namespace Pombal {
 
         private IEnumerator Flopping() {
 
+            PlayPoingAudioClip();
             FishMovementState = FishMovementStates.Flopping;
 
             float flopStartTime = Time.time;
@@ -160,7 +172,8 @@ namespace Pombal {
             Rb.position = targetPosition;
             _fishTransform.localScale = startRenderingTransformScale;
             _fishTransform.rotation = targetRotation;
-
+            PlayRandomFlopAudioClip();
+            PlaySlimeAudioClip();
 
             yield return new WaitForSeconds(_flopCooldown);
             FishMovementState = FishMovementStates.Idling;
@@ -206,6 +219,28 @@ namespace Pombal {
         private bool IsPointedRight(Vector2 direction) {
             direction = direction.normalized;
             return Vector2.Dot(direction, Vector2.right) > Vector2.Dot(direction, Vector2.left);
+        }
+
+        public void PlayRandomFlopAudioClip() {
+            if (_flopAudioClips.Length == 0) {
+                Debug.LogWarning("No audio clips assigned!");
+                return;
+            }
+            int randomIndex = Random.Range(0, _flopAudioClips.Length);
+            AudioClip selectedClip = _flopAudioClips[randomIndex];
+            _flopAudioSource.pitch = Random.Range(_flopPitchRange.x, _flopPitchRange.y);
+            _flopAudioSource.PlayOneShot(selectedClip);
+        }
+
+        public void PlaySlimeAudioClip() {
+        
+            _slimeAudioSource.pitch = Random.Range(_slimePitchRange.x, _slimePitchRange.y);
+            _slimeAudioSource.Play();
+        }
+        public void PlayPoingAudioClip() {
+
+            _poingAudioSource.pitch = Random.Range(_poingPitchRange.x, _poingPitchRange.y);
+            _poingAudioSource.Play();
         }
     }
 
