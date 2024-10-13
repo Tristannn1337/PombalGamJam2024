@@ -71,10 +71,13 @@ namespace Pombal {
 
         private void Update() {
 
-            if (IsPointedRight(-transform.right)) {
-                _ramboHolderTransform.localScale = new Vector3(_ramboHolderStartScale.x, _ramboHolderStartScale.y * -1, 1);
+            if (IsPointedRight(-transform.right))
+            {
+                _ramboHolderTransform.localRotation = Quaternion.Euler(180, 0, 0);
+                //_ramboHolderTransform.localScale = new Vector3(_ramboHolderStartScale.x, _ramboHolderStartScale.y, 1);
             } else {
-                _ramboHolderTransform.localScale = new Vector3(_ramboHolderStartScale.x, _ramboHolderStartScale.y, 1);
+                _ramboHolderTransform.localRotation = Quaternion.Euler(0, 0, 0);
+                //_ramboHolderTransform.localScale = new Vector3(_ramboHolderStartScale.x, _ramboHolderStartScale.y, 1);
             }
 
             transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z);
