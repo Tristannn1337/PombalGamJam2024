@@ -102,7 +102,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5027695736857766912}
@@ -122,6 +122,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fillImage: {fileID: 2387673372655885952}
   _scrollingImage: {fileID: 8750258411091545673}
+  _fishTransform: {fileID: 0}
+  _offsetPosition: {x: 0, y: -1.2}
+  rotationLimit: 0
   FillAmount: 0
   ShowScrollingVomit: 0
   LowColor: {r: 0, g: 1, b: 0.61909676, a: 1}
