@@ -1,28 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class randomSprite : MonoBehaviour
-{
-    public Sprite[] trash;
-    Sprite randomTrash;
+public class randomSprite : MonoBehaviour {
+    [SerializeField] private SpriteRenderer _mainSR;
+    public Sprite[] _sprites;
+    Sprite _selectedSprite;
+    void Awake() {
+        //Assign Sprite
+        if (_sprites.Length > 0) {
+            int randomIndex = Random.Range(0, _sprites.Length);
+            _selectedSprite = _sprites[randomIndex];
+        } else { Debug.Log("Array is empty!"); }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        if (trash.Length > 0)
-        {
-            // Select a random index
-            int randomIndex = Random.Range(0, trash.Length);
-            // Get the random item
-            randomTrash = trash[randomIndex];
-            // Output the random item
-        }
-        else
-        {
-            Debug.Log("Array is empty!");
-        }
-
-        this.GetComponent<SpriteRenderer>().sprite = randomTrash;
+        if (_mainSR == null) { Debug.Log(transform.gameObject.name + " has no MainSR"); }
+        _mainSR.sprite = _selectedSprite;
     }
 }
