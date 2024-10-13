@@ -1411,6 +1411,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2630603552537056187}
   - component: {fileID: 2206478320491778336}
+  - component: {fileID: 7473005959864271275}
   m_Layer: 0
   m_Name: HUD
   m_TagString: Untagged
@@ -1450,6 +1451,23 @@ MonoBehaviour:
   _pollutantsRemainingRoot: {fileID: 1339329983524106917}
   SecondsRemaining: 0
   PollutantsRemaining: 0
+--- !u!114 &7473005959864271275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4584244671772027912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69dec6dddd624b54bb32f537374da4fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hudPuppet: {fileID: 2206478320491778336}
+  levelTime: 180
+  timer: 0
+  trashObjective: 200
+  currentTrash: 0
 --- !u!1 &4819587866591186195
 GameObject:
   m_ObjectHideFlags: 0
