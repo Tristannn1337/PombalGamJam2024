@@ -38,7 +38,7 @@ namespace Pombal {
 
         private void StartVomit() {
             _fishPuppet.Vomiting = true;
-            _PukeParticles.SetActive(true); 
+            _PukeParticles.SetActive(true);
 
 
         }
@@ -70,7 +70,7 @@ namespace Pombal {
 
         private IEnumerator Vomiting() {
 
-            _cameraController.SwitchToVomitCamera(Mathf.Clamp(_vomitingDuration - .2f, 0, 100f));
+            _cameraController.SwitchToVomitCamera(Mathf.Clamp(_vomitingDuration - 1f, 0, 100f));
             yield return new WaitForSeconds(_vomitingWaitTime);
             StartVomit();
             float tummyTrashfloat = _tummyTrash;
