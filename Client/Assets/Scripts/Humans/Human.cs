@@ -7,7 +7,7 @@ public class Human : MonoBehaviour
     [SerializeField] float maxHealth = 100;
 
     [SerializeField] Quadrant quadrant;
-    float currentHealth;
+    [SerializeField, ReadOnly] float currentHealth;
 
     [field: SerializeField] public AIPathfinding Pathfinding { get; private set; }
     FishController fish;
@@ -30,6 +30,11 @@ public class Human : MonoBehaviour
     public Transform GetHidingSpot()
     {
         return hidingSpots.GetHidingSpot(quadrant);
+    }
+    public void TurnTowardsFish()
+    {
+        Vector2 fishDirection = (FishTransform.position - transform.position).normalized;
+        transform.right = fishDirection;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
