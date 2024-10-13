@@ -3,6 +3,7 @@ namespace Pombal {
 
     public class Trash : MonoBehaviour {
         [SerializeField] private SpriteRenderer _mainSR, _outlineSR;
+        [SerializeField] private ParticleSystem thrashEffect = null;
         public Sprite[] trash;
         Sprite randomTrash;
         void Awake() {
@@ -38,6 +39,14 @@ namespace Pombal {
             float value = Random.Range(0.9f, 1f);
             Color color = Color.HSVToRGB(hue, saturation, value);
             return color; 
+        }
+        private void OnBecameVisible()
+        {
+            thrashEffect.gameObject.SetActive(true);
+        }
+        private void OnBecameInvisible()
+        {
+            thrashEffect.gameObject.SetActive(false);
         }
     }
 }
