@@ -48,9 +48,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6091472105976414609, guid: 8d50b0b23693cee47835515c16167233, type: 3}
+      propertyPath: m_Lens.OrthographicSize
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 7994785790455966531, guid: 8d50b0b23693cee47835515c16167233, type: 3}
       propertyPath: m_Name
-      value: Base Virtual Camera
+      value: VCam Vomit
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
