@@ -87,7 +87,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bd4ba6e5247faa40a1b160d4739abb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypointDistance: 0.1
+  waypointDistance: 0.2
 --- !u!114 &8143782677994348529
 MonoBehaviour:
   m_ObjectHideFlags: 0
