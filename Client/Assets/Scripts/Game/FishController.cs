@@ -31,7 +31,7 @@ namespace Pombal {
         [SerializeField] private Transform _fishTransform;
         [SerializeField] private Transform _ramboHolderTransform;
         private Rigidbody2D _rb;
-        private Rigidbody2D Rb => _rb = _rb ?? GetComponent<Rigidbody2D>();
+        public Rigidbody2D Rb => _rb = _rb ?? GetComponent<Rigidbody2D>();
         private TrashYummy _trashYummy;
         private TrashYummy TrashYummy => _trashYummy = _trashYummy ?? GetComponent<TrashYummy>();
 
