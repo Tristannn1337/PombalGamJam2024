@@ -1,4 +1,5 @@
 using Pombal;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Human : MonoBehaviour
@@ -10,6 +11,7 @@ public class Human : MonoBehaviour
     [SerializeField, ReadOnly] float currentHealth;
     [SerializeField] ParticleSystem deathParticles;
     [SerializeField] ParticleSystem bloodOnTheGroundVFX;
+    [SerializeField] List<string> runAwayLines;
 
     [field: SerializeField] public AIPathfinding Pathfinding { get; private set; }
     protected FishController fish;
@@ -49,6 +51,10 @@ public class Human : MonoBehaviour
     {
         Vector2 fishDirection = (FishTransform.position - transform.position).normalized;
         transform.right = fishDirection;
+    }
+    public string GetShoutLine()
+    {
+        return runAwayLines[Random.Range(0, runAwayLines.Count)];
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

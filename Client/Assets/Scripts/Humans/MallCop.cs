@@ -12,6 +12,7 @@ public class MallCop : Human
     [SerializeField] float taserForce = 1000f;
     [Space]
     [SerializeField] UnityEvent OnTase;
+
     public void TaseFish()
     {
         OnTase?.Invoke();
