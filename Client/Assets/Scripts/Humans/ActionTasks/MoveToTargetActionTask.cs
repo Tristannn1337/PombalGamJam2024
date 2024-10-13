@@ -42,7 +42,7 @@ public class MoveToTargetActionTask : ActionTask<Human>
 
         agent.transform.position = Vector2.MoveTowards(agent.transform.position, (Vector2)nextWaypoint, MovementSpeed.value * Time.deltaTime);
         Vector2 moveDirection = (Vector2)nextWaypoint - (Vector2)agent.transform.position;
-        agent.transform.right = Vector2.MoveTowards(agent.transform.right, moveDirection, 3f * Time.deltaTime);
+        agent.transform.right = Vector2.MoveTowards(agent.transform.right, moveDirection, 10f * Time.deltaTime);
 
 
     }
