@@ -1466,7 +1466,7 @@ MonoBehaviour:
   hudPuppet: {fileID: 2206478320491778336}
   levelTime: 180
   timer: 0
-  trashObjective: 200
+  trashObjective: 180
   currentTrash: 0
 --- !u!1 &4819587866591186195
 GameObject:

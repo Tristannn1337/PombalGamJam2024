@@ -34,9 +34,20 @@ public class LevelManager : MonoBehaviour
 
         if(timer <= 0)
         {
-            WON = currentTrash >= trashObjective;
-            //SceneManager.LoadScene();
+            LoadReplayScene();
         }
+
+
+        hudPuppet.PollutantsRemaining = trashObjective - currentTrash;
+        if(currentTrash >= trashObjective)
+        {
+            LoadReplayScene();
+        }
+    }
+    private void LoadReplayScene()
+    {
+        WON = currentTrash >= trashObjective;
+        SceneManager.LoadScene("ReplayScene");
     }
     public void IncrementTrash()
     {
