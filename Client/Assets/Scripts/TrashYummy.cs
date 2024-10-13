@@ -9,10 +9,11 @@ namespace Pombal {
         [SerializeField] private int _maxTrash = 15;
         [SerializeField, ReadOnly] private int _tummyTrash = 0;
         [SerializeField] private float _vomitingDuration = 3;
-        [SerializeField] private float _vomitingWaitTime = .5f;
+        [SerializeField] private float _vomitingWaitTime = .3f;
         [SerializeField] private LayerMask _trashLayerMask;
         [SerializeField] private RamboFishPuppet _fishPuppet;
         [SerializeField] private HudPuppet _hudPuppet;
+        [SerializeField] private CameraController _cameraController;
 
         void Start() {
 
@@ -27,6 +28,7 @@ namespace Pombal {
         public void Hit(int damage) {
             _fishPuppet.Hit = true;
             AddTrash(-Mathf.Abs(damage));
+            _cameraController.SwitchToHitCamera(.2f);
         }
 
         //public void Die() {
@@ -35,6 +37,7 @@ namespace Pombal {
 
         private void StartVomit() {
             _fishPuppet.Vomiting = true;
+           
         }
         private void StopVomit() {
             _fishPuppet.Vomiting = false;
@@ -63,6 +66,7 @@ namespace Pombal {
 
         private IEnumerator Vomiting() {
 
+            _cameraController.SwitchToVomitCamera(Mathf.Clamp(_vomitingDuration - .2f, 0, 100f));
             yield return new WaitForSeconds(_vomitingWaitTime);
             StartVomit();
             float tummyTrashfloat = _tummyTrash;

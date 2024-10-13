@@ -183,7 +183,7 @@ namespace Pombal {
 
             if (closestHit.collider != null) {
                 collisionNormal = closestHit.normal;
-                Debug.Log("Collision: " + closestHit.transform.gameObject.name + " Found Among " + hits.Length + " hits");
+                //Debug.Log("Collision: " + closestHit.transform.gameObject.name + " Found Among " + hits.Length + " hits");
                 return true;
             } else {
                 collisionNormal = Vector2.zero;
