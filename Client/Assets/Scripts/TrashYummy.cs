@@ -12,7 +12,7 @@ namespace Pombal {
         [SerializeField] private float _vomitingWaitTime = .5f;
         [SerializeField] private LayerMask _trashLayerMask;
         [SerializeField] private RamboFishPuppet _fishPuppet;
-
+        [SerializeField] private HudPuppet _hudPuppet;
 
         void Start() {
 
@@ -21,6 +21,7 @@ namespace Pombal {
         private void Eat() {
             _fishPuppet.Eat = true;
             AddTrash(1);
+            _hudPuppet.PollutantsRemaining -= 1;
         }
 
         public void Hit(int damage) {
