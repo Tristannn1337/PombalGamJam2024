@@ -34,7 +34,12 @@ public class VomitMeterPuppet : MonoBehaviour {
         Vector2 targetOffset;
         transform.position = (Vector2)_fishTransform.position + _offsetPosition;
 
-        if (IsPointingDownMoreThanOtherDirections(-_fishTransform.right)) { targetOffset = new Vector2(_offsetPosition.x, -_offsetPosition.y); } else { targetOffset = _offsetPosition; }
+        if (IsPointingDownMoreThanOtherDirections(-_fishTransform.right) && ShowScrollingVomit) {
+
+            targetOffset = new Vector2(_offsetPosition.x, -_offsetPosition.y);
+        } else {
+            targetOffset = _offsetPosition;
+        }
 
         transform.position = (Vector2)_fishTransform.position + targetOffset;
 
@@ -63,6 +68,6 @@ public class VomitMeterPuppet : MonoBehaviour {
     private bool IsPointingDownMoreThanOtherDirections(Vector2 vector) {
         // Check if the vector is pointing down more than left, right, or up
         //return vector.y < 0 && Mathf.Abs(vector.y) > Mathf.Abs(vector.x) && Mathf.Abs(vector.y) > 0;
-        return vector.y < -.4f;
+        return vector.y < -.3f;
     }
 }

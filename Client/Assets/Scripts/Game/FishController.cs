@@ -76,6 +76,8 @@ namespace Pombal {
             } else {
                 _ramboHolderTransform.localScale = new Vector3(_ramboHolderStartScale.x, _ramboHolderStartScale.y, 1);
             }
+
+            transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z);
         }
 
         public void Hit(int damage) {
@@ -116,7 +118,7 @@ namespace Pombal {
             _randomRotationPolarity *= -1;
             //Save Transform data
             Vector3 startRenderingTransformScale = transform.localScale;
-            Quaternion startRenderingTransformRotation = transform.rotation;
+            Quaternion startRenderingTransformRotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z);
 
             //Add Random DIrection
             float flopDirectionAngle = Mathf.Atan2(flopDirection.y, flopDirection.x) * Mathf.Rad2Deg;
@@ -130,6 +132,7 @@ namespace Pombal {
             //Set Target Rotation
             Quaternion targetRotation = Quaternion.FromToRotation(startRenderingTransformRotation * Vector3.right, -flopDirection) * startRenderingTransformRotation;
             targetRotation *= randomAddedRotation;
+            targetRotation = Quaternion.Euler(0, 0, targetRotation.eulerAngles.z);
 
             //bool flopInterrupted = false;
 
@@ -233,7 +236,7 @@ namespace Pombal {
         }
 
         public void PlaySlimeAudioClip() {
-        
+
             _slimeAudioSource.pitch = Random.Range(_slimePitchRange.x, _slimePitchRange.y);
             _slimeAudioSource.Play();
         }
