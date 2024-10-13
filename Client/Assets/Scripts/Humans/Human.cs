@@ -9,13 +9,14 @@ public class Human : MonoBehaviour
     [SerializeField] Quadrant quadrant;
     [SerializeField, ReadOnly] float currentHealth;
     [SerializeField] ParticleSystem deathParticles;
+    [SerializeField] ParticleSystem bloodOnTheGroundVFX;
 
     [field: SerializeField] public AIPathfinding Pathfinding { get; private set; }
-    FishController fish;
+    protected FishController fish;
     HidingSpots hidingSpots;
 
     public Transform FishTransform => fish != null ? fish.transform : null;
-    public bool IsDead => currentHealth <= 0;
+    public bool IsDead { get; private set; }
 
     private void Awake()
     {
@@ -27,6 +28,18 @@ public class Human : MonoBehaviour
     public void TakeDamage(float damageAmount)
     {
         currentHealth = Mathf.Max(0, currentHealth - damageAmount);
+        if(currentHealth == 0)
+        {
+            if(deathParticles != null)
+            {
+                Instantiate(deathParticles, transform.position, Quaternion.identity);
+            }
+            if(bloodOnTheGroundVFX != null)
+            {
+                Instantiate(bloodOnTheGroundVFX, transform.position, Quaternion.identity);
+            }
+            IsDead = true;
+        }
     }
     public Transform GetHidingSpot()
     {
@@ -43,16 +56,5 @@ public class Human : MonoBehaviour
         {
             quadrant = quadrantTrigger.Quadrant;
         }
-    }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.F1))
-        {
-            Destroy(gameObject);
-        }
-    }
-    private void OnDestroy()
-    {
-        Instantiate(deathParticles, transform.position, Quaternion.identity);
     }
 }
