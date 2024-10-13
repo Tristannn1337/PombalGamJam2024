@@ -35,5 +35,9 @@ namespace Pombal {
             Vector2 movementInput = new Vector2(player.GetAxis(MoveHorizontalAction), player.GetAxis(MoveVerticallAction));
             if (movementInput != Vector2.zero) { OnMove?.Invoke(movementInput); }
         }
+        public bool PressAnyButton()
+        {
+            return player.GetAnyButtonDown();
+        }
     }
 }
