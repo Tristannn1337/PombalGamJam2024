@@ -6,7 +6,6 @@ using UnityEngine.Events;
 public class MallCop : Human
 {
     [SerializeField] LayerMask fishLayer = default;
-    [SerializeField] float damage = 10f;
     [SerializeField] Transform damageCenter = null;
     [SerializeField] Vector2 damageSize;
     [SerializeField] float taserForce = 1000f;

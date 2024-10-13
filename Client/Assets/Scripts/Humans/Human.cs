@@ -11,6 +11,7 @@ public class Human : MonoBehaviour
     [SerializeField, ReadOnly] float currentHealth;
     [SerializeField] ParticleSystem deathParticles;
     [SerializeField] ParticleSystem bloodOnTheGroundVFX;
+    [SerializeField] BubbleBox bubbleBoxPrefab;
     [SerializeField] List<string> runAwayLines;
 
     [field: SerializeField] public AIPathfinding Pathfinding { get; private set; }
@@ -52,9 +53,16 @@ public class Human : MonoBehaviour
         Vector2 fishDirection = (FishTransform.position - transform.position).normalized;
         transform.right = fishDirection;
     }
-    public string GetShoutLine()
+    private string GetShoutLine()
     {
         return runAwayLines[Random.Range(0, runAwayLines.Count)];
+    }
+    public void HumanReaction()
+    {
+        BubbleBox bubbleBox = Instantiate(bubbleBoxPrefab, transform.position, Quaternion.identity);
+        bubbleBox.ActivateText(GetShoutLine(), transform);
+
+        //Play Sound Here.
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
