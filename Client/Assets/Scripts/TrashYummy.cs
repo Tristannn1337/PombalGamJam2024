@@ -1,4 +1,5 @@
 namespace Pombal {
+    using System;
     using System.Collections;
     using UnityEngine;
 
@@ -17,7 +18,7 @@ namespace Pombal {
         [SerializeField] private VomitMeterPuppet _vomitMeter;
         private bool _vomiting;
 
-
+        public static event Action OnTrashPickup;
         void Start() {
 
         }
@@ -60,6 +61,7 @@ namespace Pombal {
                 if (((1 << collision.gameObject.layer) & _trashLayerMask) != 0) {
                     Destroy(collision.gameObject);
                     Eat();
+                    OnTrashPickup?.Invoke();
                 }
             }
         }
