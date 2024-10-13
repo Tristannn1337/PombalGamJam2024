@@ -66,6 +66,7 @@ namespace Pombal {
 
         private void Awake() {
             _ramboHolderStartScale = _ramboHolderTransform.localScale;
+            Rb.freezeRotation = true;
         }
 
         private void Update() {
