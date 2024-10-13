@@ -62,6 +62,7 @@ public class VomitMeterPuppet : MonoBehaviour {
 
     private bool IsPointingDownMoreThanOtherDirections(Vector2 vector) {
         // Check if the vector is pointing down more than left, right, or up
-        return vector.y < 0 && Mathf.Abs(vector.y) > Mathf.Abs(vector.x) && Mathf.Abs(vector.y) > 0;
+        //return vector.y < 0 && Mathf.Abs(vector.y) > Mathf.Abs(vector.x) && Mathf.Abs(vector.y) > 0;
+        return vector.y < -.4f;
     }
 }

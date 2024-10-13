@@ -14,8 +14,10 @@ namespace Pombal {
         [SerializeField] private CameraController _cameraController;
         [SerializeField] private GameObject _PukeParticles;
         [SerializeField] private AudioSource _pukeSound;
+        [SerializeField] private VomitMeterPuppet _vomitMeter;
+        private bool _vomiting;
 
-      
+
         void Start() {
 
         }
@@ -48,13 +50,17 @@ namespace Pombal {
 
         private void SetFullness(float percent) {
             _fishPuppet.Fullness = percent;
+            _vomitMeter.FillAmount = percent;
         }
 
 
         private void OnTriggerEnter2D(Collider2D collision) {
-            if (((1 << collision.gameObject.layer) & _trashLayerMask) != 0) {
-                Destroy(collision.gameObject);
-                Eat();
+
+            if (!_vomiting) {
+                if (((1 << collision.gameObject.layer) & _trashLayerMask) != 0) {
+                    Destroy(collision.gameObject);
+                    Eat();
+                }
             }
         }
 
@@ -62,15 +68,20 @@ namespace Pombal {
             _tummyTrash = Mathf.Clamp(_tummyTrash += value, 0, _maxTrash);
             SetFullness((float)_tummyTrash / (float)_maxTrash);
 
-            if (_tummyTrash >= _maxTrash) {
-                StartCoroutine(Vomiting());
+            if (!_vomiting) {
+                if (_tummyTrash >= _maxTrash) {
+                    StartCoroutine(Vomiting());
+                    _vomiting = true;
+                }
             }
         }
 
         private IEnumerator Vomiting() {
 
+            _vomitMeter.ShowScrollingVomit = true;
             _cameraController.SwitchToVomitCamera(Mathf.Clamp(_vomitingDuration - 1f, 0, 100f));
             yield return new WaitForSeconds(_vomitingWaitTime);
+
             StartVomit();
             _pukeSound.Play();
             float tummyTrashfloat = _tummyTrash;
@@ -78,11 +89,14 @@ namespace Pombal {
             while (_tummyTrash > 0) {
                 tummyTrashfloat -= (_maxTrash / _vomitingDuration * Time.deltaTime);
                 _tummyTrash = (int)tummyTrashfloat;
+                SetFullness((float)_tummyTrash / (float)_maxTrash);
                 yield return null;
             }
             _tummyTrash = 0;
             SetFullness(0);
+            _vomitMeter.ShowScrollingVomit = false;
             StopVomit();
+            _vomiting = false;
         }
     }
 }
