@@ -1,4 +1,5 @@
 namespace Pombal {
+    using NodeCanvas.Tasks.Actions;
     using System.Collections;
     using System.Collections.Generic;
     using UnityEngine;
@@ -14,7 +15,7 @@ namespace Pombal {
         [SerializeField] private RamboFishPuppet _fishPuppet;
         [SerializeField] private HudPuppet _hudPuppet;
         [SerializeField] private CameraController _cameraController;
-
+        [SerializeField] private GameObject _PukeParticles;
         void Start() {
 
         }
@@ -37,10 +38,13 @@ namespace Pombal {
 
         private void StartVomit() {
             _fishPuppet.Vomiting = true;
-           
+            _PukeParticles.SetActive(true); 
+
+
         }
         private void StopVomit() {
             _fishPuppet.Vomiting = false;
+            _PukeParticles.SetActive(false);
         }
 
         private void SetFullness(float percent) {
