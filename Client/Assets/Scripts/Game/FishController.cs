@@ -44,13 +44,13 @@ namespace Pombal {
 
         private void OnEnable() {
 
-            Pombal.InputManager.OnFlop += OnFlopInput;
+            //Pombal.InputManager.OnFlop += OnFlopInput;
             Pombal.InputManager.OnMove += OnMoveInput;
 
         }
 
         private void OnDisable() {
-            Pombal.InputManager.OnFlop -= OnFlopInput;
+            //Pombal.InputManager.OnFlop -= OnFlopInput;
             Pombal.InputManager.OnMove -= OnMoveInput;
         }
 
@@ -71,16 +71,19 @@ namespace Pombal {
             TrashYummy.Hit(damage);
         }
 
-        private void OnFlopInput() {
+        //private void OnFlopInput() {
 
-            if (FishMovementState == FishMovementStates.Idling) {
-                StartCoroutine(Flopping());
-            }
-        }
+        //    if (FishMovementState == FishMovementStates.Idling) {
+        //        StartCoroutine(Flopping());
+        //    }
+        //}
 
         private void OnMoveInput(Vector2 input) {
 
             _lastMoveInputDirection = input.normalized;
+            if (FishMovementState == FishMovementStates.Idling) {
+                StartCoroutine(Flopping());
+            }
         }
 
         private IEnumerator Flopping() {
@@ -130,7 +133,7 @@ namespace Pombal {
                 float CurveT = selectedAnimationCurve.Evaluate(t);
                 float scaleT = CurveT <= 0.5f ? CurveT * 2 : (1 - CurveT) * 2;
 
-              
+
 
                 Rb.position = Vector2.Lerp(startPosition, targetPosition, CurveT);//lerp rb movement
                 transform.localScale = Vector2.Lerp(startRenderingTransformScale, startRenderingTransformScale * _flopApexSizeMultiplier, scaleT);//lerp rendering scale

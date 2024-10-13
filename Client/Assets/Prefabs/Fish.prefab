@@ -273,9 +273,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2cc95b7dbd22704f8896e003e6988a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxTrash: 15
+  _maxTrash: 10
   _tummyTrash: 0
-  _vomitingDuration: 3
+  _vomitingDuration: 5
   _vomitingWaitTime: 0.5
   _trashLayerMask:
     serializedVersion: 2
