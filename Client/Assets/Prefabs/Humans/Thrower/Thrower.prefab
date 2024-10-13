@@ -216,6 +216,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   quadrant: 0
+  currentHealth: 0
+  deathParticles: {fileID: 898304880608951787, guid: ac82587ea0cc69741ab8a1e754518a78, type: 3}
   <Pathfinding>k__BackingField: {fileID: 8683180433285389177}
   <FireRate>k__BackingField: 1.5
   projectile: {fileID: 1508797275493856148, guid: bc322a7bb9f876846b108b5993068b7b, type: 3}
