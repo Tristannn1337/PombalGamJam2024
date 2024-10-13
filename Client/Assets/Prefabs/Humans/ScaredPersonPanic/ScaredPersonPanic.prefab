@@ -87,7 +87,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bd4ba6e5247faa40a1b160d4739abb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypointDistance: 0.1
+  waypointDistance: 0.2
 --- !u!114 &8143782677994348529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,6 +211,7 @@ MonoBehaviour:
   quadrant: 0
   currentHealth: 0
   deathParticles: {fileID: 898304880608951787, guid: ac82587ea0cc69741ab8a1e754518a78, type: 3}
+  bloodOnTheGroundVFX: {fileID: 898304880608951787, guid: c6c0e0c48c49d5e4cafaf476ace610ca, type: 3}
   <Pathfinding>k__BackingField: {fileID: 8683180433285389177}
 --- !u!50 &-3099753031124193598
 Rigidbody2D:
