@@ -587,7 +587,7 @@ PlayerSettings:
     Stadia: DOTWEEN
     Standalone: NODECANVAS;DOTWEEN
     VisionOS: DOTWEEN
-    WebGL: DOTWEEN
+    WebGL: DOTWEEN;NODECANVAS
     Windows Store Apps: DOTWEEN
     XboxOne: DOTWEEN
     iPhone: DOTWEEN
