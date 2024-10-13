@@ -8,6 +8,7 @@ public class Human : MonoBehaviour
 
     [SerializeField] Quadrant quadrant;
     [SerializeField, ReadOnly] float currentHealth;
+    [SerializeField] ParticleSystem deathParticles;
 
     [field: SerializeField] public AIPathfinding Pathfinding { get; private set; }
     FishController fish;
@@ -42,5 +43,16 @@ public class Human : MonoBehaviour
         {
             quadrant = quadrantTrigger.Quadrant;
         }
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            Destroy(gameObject);
+        }
+    }
+    private void OnDestroy()
+    {
+        Instantiate(deathParticles, transform.position, Quaternion.identity);
     }
 }
