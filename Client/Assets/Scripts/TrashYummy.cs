@@ -13,6 +13,7 @@ namespace Pombal {
         [SerializeField] private HudPuppet _hudPuppet;
         [SerializeField] private CameraController _cameraController;
         [SerializeField] private GameObject _PukeParticles;
+        [SerializeField] private AudioSource _pukeSound;
 
       
         void Start() {
@@ -38,12 +39,11 @@ namespace Pombal {
         private void StartVomit() {
             _fishPuppet.Vomiting = true;
             _PukeParticles.SetActive(true);
-
-
         }
         private void StopVomit() {
             _fishPuppet.Vomiting = false;
             _PukeParticles.SetActive(false);
+            _pukeSound.Stop();
         }
 
         private void SetFullness(float percent) {
@@ -72,6 +72,7 @@ namespace Pombal {
             _cameraController.SwitchToVomitCamera(Mathf.Clamp(_vomitingDuration - 1f, 0, 100f));
             yield return new WaitForSeconds(_vomitingWaitTime);
             StartVomit();
+            _pukeSound.Play();
             float tummyTrashfloat = _tummyTrash;
 
             while (_tummyTrash > 0) {
