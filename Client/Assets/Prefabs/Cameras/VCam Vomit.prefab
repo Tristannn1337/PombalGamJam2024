@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6091472105976414609, guid: 8d50b0b23693cee47835515c16167233, type: 3}
       propertyPath: m_Lens.OrthographicSize
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7994785790455966531, guid: 8d50b0b23693cee47835515c16167233, type: 3}
       propertyPath: m_Name

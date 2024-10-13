@@ -12,10 +12,10 @@ namespace Pombal {
         private void Awake() {
 
             _cameras = new CinemachineVirtualCamera[] { _camIdle, _camHit, _camVomit };
-            foreach (var cam in _cameras) {
-                cam.Follow = target;
-                cam.LookAt = target;
-            }
+            //foreach (var cam in _cameras) {
+            //    cam.Follow = target;
+            //    cam.LookAt = target;
+            //}
 
             SwitchToIdleCamera();
         }
