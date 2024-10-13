@@ -178,7 +178,7 @@ Transform:
   m_GameObject: {fileID: 7558135592557193806}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -200,27 +200,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _flopDistance: 3
   _flopDuration: 0.3
-  _flopCooldown: 0.05
+  _flopCooldown: 0.01
   _flopCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 2
-      outSlope: 2
+      inSlope: 2.055249
+      outSlope: 2.055249
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.03225806
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: 1.2944847
+      outSlope: 1.2944847
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.035566688
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _bounceOffCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2.3407001
+      outSlope: 2.3407001
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
+      outWeight: 0.03225806
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: -0
+      outSlope: -0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.07444179
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -228,8 +252,8 @@ MonoBehaviour:
   _flopApexSizeMultiplier: 1.4
   _randomRenderingRotation: {x: 15, y: 30}
   _randomMovementRotation: {x: 2, y: 4}
-  _collisionRadius: 0.2
-  _collisionOffset: {x: 0.2, y: 0}
+  _collisionRadius: 0.5
+  _collisionOffset: {x: 0, y: 0}
   _collisionMask:
     serializedVersion: 2
     m_Bits: 64
@@ -312,10 +336,10 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.1, y: 0}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.3
 --- !u!1001 &5797320561492988767

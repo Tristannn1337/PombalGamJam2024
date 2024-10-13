@@ -15,6 +15,7 @@ namespace Pombal {
         [SerializeField] private float _flopDuration = .3f;
         [SerializeField] private float _flopCooldown = .1f;
         [SerializeField] private AnimationCurve _flopCurve;
+        [SerializeField] private AnimationCurve _bounceOffCurve;
         [SerializeField] private float _flopApexSizeMultiplier = 1.1f;
         [SerializeField] private Vector2 _randomRenderingRotation = new Vector2(20f, 60f);
         [SerializeField] private Vector2 _randomMovementRotation = new Vector2(5f, 15f);
@@ -60,9 +61,9 @@ namespace Pombal {
         private void Update() {
 
             if (IsPointedRight(-transform.right)) {
-                _ramboHolderTransform.localScale = new Vector3(_ramboHolderStartScale.x, _ramboHolderStartScale.y * -1, 0);
+                _ramboHolderTransform.localScale = new Vector3(_ramboHolderStartScale.x, _ramboHolderStartScale.y * -1, 1);
             } else {
-                _ramboHolderTransform.localScale = new Vector3(_ramboHolderStartScale.x, _ramboHolderStartScale.y, 0);
+                _ramboHolderTransform.localScale = new Vector3(_ramboHolderStartScale.x, _ramboHolderStartScale.y, 1);
             }
         }
 
@@ -99,7 +100,7 @@ namespace Pombal {
 
             _randomRotationPolarity *= -1;
             //Save Transform data
-            Vector2 startRenderingTransformScale = transform.localScale;
+            Vector3 startRenderingTransformScale = transform.localScale;
             Quaternion startRenderingTransformRotation = transform.rotation;
 
             //Add Random DIrection
@@ -121,34 +122,34 @@ namespace Pombal {
 
             float t = 0;
             float flopDuration = _flopDuration;
+            bool flopInterrupted = false;
             while (t < 1) {
 
                 t = (Time.time - flopStartTime) / flopDuration;
+                AnimationCurve selectedAnimationCurve = flopInterrupted ? _bounceOffCurve : _flopCurve;
+                float CurveT = selectedAnimationCurve.Evaluate(t);
+                float scaleT = CurveT <= 0.5f ? CurveT * 2 : (1 - CurveT) * 2;
 
-                float flopCurveT = _flopCurve.Evaluate(t);
-                float scaleT = flopCurveT <= 0.5f ? flopCurveT * 2 : (1 - flopCurveT) * 2;
+              
 
-
-                Rb.position = Vector2.Lerp(startPosition, targetPosition, flopCurveT);//lerp rb movement
+                Rb.position = Vector2.Lerp(startPosition, targetPosition, CurveT);//lerp rb movement
                 transform.localScale = Vector2.Lerp(startRenderingTransformScale, startRenderingTransformScale * _flopApexSizeMultiplier, scaleT);//lerp rendering scale
-                transform.rotation = Quaternion.Slerp(startRenderingTransformRotation, targetRotation, flopCurveT);// lerp rendering rotation
+                transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, 1);
+                transform.rotation = Quaternion.Slerp(startRenderingTransformRotation, targetRotation, CurveT);// lerp rendering rotation
 
                 //Check for collision bounce
                 Vector2 collisionNormal;
                 if (CheckForCollision((Vector2)transform.position + (_collisionOffset * -(Vector2)transform.right), _collisionRadius, -transform.right, _collisionMask, out collisionNormal)) {
 
-                    float remainingT = .3f;
-                    //float remainingT = Mathf.Max(0, 1 - t);
-                    flopDuration *= remainingT;
+                    flopInterrupted = true;
+                    flopDuration *= 1f;
                     flopStartTime = Time.time;
-                    //ResetDirection
                     Vector2 newDirection = collisionNormal;
-                    targetPosition = (Vector2)transform.position + newDirection.normalized * _flopDistance * remainingT;
-
-                    //transform.right = -newDirection;
-
+                    startPosition = transform.position;
+                    targetPosition = (Vector2)transform.position + newDirection.normalized * _flopDistance * .5f;
                     targetRotation = Quaternion.FromToRotation(transform.rotation * Vector3.right, -newDirection) * transform.rotation;
                     targetRotation *= randomAddedRotation;
+
                 }
                 yield return null;
             }
@@ -164,11 +165,25 @@ namespace Pombal {
 
         private bool CheckForCollision(Vector2 origin, float radius, Vector2 direction, LayerMask layerMask, out Vector2 collisionNormal) {
 
-            RaycastHit2D hit = Physics2D.CircleCast(origin, radius, direction, 0f, layerMask);
+            RaycastHit2D[] hits = Physics2D.CircleCastAll(origin, radius, direction, 0f, layerMask);
 
-            if (hit.collider != null) {
-                collisionNormal = hit.normal;
-                Debug.Log(hit.transform.gameObject.name);
+
+            RaycastHit2D closestHit = new RaycastHit2D();
+            float closestDistance = float.MaxValue;
+
+            foreach (RaycastHit2D hit in hits) {
+                float distance = hit.distance;
+
+                if (distance < closestDistance) {
+                    closestDistance = distance;
+                    closestHit = hit;
+                }
+            }
+
+
+            if (closestHit.collider != null) {
+                collisionNormal = closestHit.normal;
+                Debug.Log("Collision: " + closestHit.transform.gameObject.name + " Found Among " + hits.Length + " hits");
                 return true;
             } else {
                 collisionNormal = Vector2.zero;
