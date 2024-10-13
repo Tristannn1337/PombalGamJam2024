@@ -1,9 +1,6 @@
 namespace Pombal {
-    using NodeCanvas.Tasks.Actions;
     using System.Collections;
-    using System.Collections.Generic;
     using UnityEngine;
-    using static Rewired.Controller;
 
     public class TrashYummy : MonoBehaviour {
 
@@ -16,6 +13,8 @@ namespace Pombal {
         [SerializeField] private HudPuppet _hudPuppet;
         [SerializeField] private CameraController _cameraController;
         [SerializeField] private GameObject _PukeParticles;
+
+      
         void Start() {
 
         }

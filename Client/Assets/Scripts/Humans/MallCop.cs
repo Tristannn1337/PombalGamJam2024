@@ -9,6 +9,7 @@ public class MallCop : Human
     [SerializeField] float damage = 10f;
     [SerializeField] Transform damageCenter = null;
     [SerializeField] Vector2 damageSize;
+    [SerializeField] float taserForce = 1000f;
     [Space]
     [SerializeField] UnityEvent OnTase;
     public void TaseFish()
@@ -18,7 +19,8 @@ public class MallCop : Human
         RaycastHit2D hit = Physics2D.BoxCast(damageCenter.position, damageSize, 0f, Vector2.up, 0f, fishLayer);
         if(hit.transform != null)
         {
-            Debug.Log("Tase Fish");
+            Vector2 forceDirection = (FishTransform.position - transform.position).normalized;
+            fish.Rb.AddForceAtPosition(forceDirection * taserForce, fish.transform.position, ForceMode2D.Force);
         }
     }
     private void OnDrawGizmos()
